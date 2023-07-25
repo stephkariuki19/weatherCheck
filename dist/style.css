@@ -7,13 +7,16 @@ body{
     background: linear-gradient(180deg, rgba(253,187,45,0.9808298319327731) 0%, rgba(29,150,152,1) 100%);
 }
 .container{
-    
-    height: 100vh;
-}
+    border:1px solid purple;  /* adds responsiveness*/
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 nav{
     display: flex;
     align-items: center;
     justify-content:space-around;
+    border:1px solid red;
 }
 input{
     border: none;
@@ -38,8 +41,14 @@ input{
 
 .search{
     display: flex;
-   
-   
+   border:1px solid green;
+   margin: 0px;
+   padding: 10px;
+   padding-left: 50px;
+}
+#search{ /* adds responsiveness*/
+    width: 100%;
+    max-width: 300px;
 }
 ::placeholder{
     color: rgba(29,150,152,1);
@@ -53,16 +62,18 @@ input{
 }
 .info{
     margin: 0 auto;
-    width: 600px;
-    height: 400px;
-    margin-top: 20px;
+    max-width: 600px;
+    min-height: 400px;
+    margin-top: 10px;
     border-radius: 10px;
     background-color: rgba(255,255,255,0.4);
     display: flex;
+    border:1px solid pink;
 }
 .icon-section{
     width: 35%;
     padding: 10px;
+    border:1px solid black;
 }
 .actual-icon{
     fill: white;
@@ -137,7 +148,9 @@ input{
   }
 
 .weather-stats{
-    width: 65%;
+    min-width: 65%;
+    border:1px solid rgb(136, 105, 105);
+   
 }
 .location{
     font-weight: 300;
@@ -169,4 +182,60 @@ input{
   grid-template-columns: 1fr 1fr;
     margin-left: 20px;
     line-height: 35px;
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    /* Adjust the banner text size for smaller screens */
+    .banner-text {
+      font-size: 24px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+      /* Center the search input for smaller screens */
+  .search {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* Adjust the size of the search icon for smaller screens */
+  .search-icon {
+    top: 0;
+    right: 0;
+  }
+
+  /* Add some spacing between the search input and the banner text */
+  .banner-text,
+  .search {
+    margin-bottom: 10px;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+  .weather-stats {
+    min-width: unset;
+    max-width: 100%;
+  }
+  .actual-icon {
+    margin-bottom: 0;
+  }
+
+  .location {
+    bottom: 0;
+  }
+
+  .actual-temp {
+    bottom: 0;
+  }
+  .other-stats {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    text-align: center;
+  }
 }
